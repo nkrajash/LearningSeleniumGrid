@@ -1,0 +1,43 @@
+//Running multiple browsers on Selenium grid
+//run on separate cmd prompt for hub
+java -jar C:\Data\Selenium\Softwares\selenium-server-standalone-3.141.59.jar -role hub -port 4455
+
+//If node is running on the same machine(remote)
+//run on separate cmd prompt for chrome driver
+java -Dwebdriver.chrome.driver="C:\Data\Selenium\Softwares\chromedriver_win32\chromedriver.exe" -jar C:\Data\Selenium\Softwares\selenium-server-standalone-3.141.59.jar -role node -hub http://192.168.0.104:4455/grid/register/
+
+//If node is running on the same machine(remote)
+//run on separate cmd prompt for edge driver
+java -Dwebdriver.edge.driver="C:\Data\Selenium\Softwares\edgedriver_win64\msedgedriver.exe" -jar C:\Data\Selenium\Softwares\selenium-server-standalone-3.141.59.jar -role node -hub http://192.168.0.104:4455/grid/register/ -browser "browserName=MicrosoftEdge, maxInstances = 5"
+
+=====================================================================================================================================================
+//If node is running on the different machine(local)
+//run on separate cmd prompt for chrome driver
+java -jar C:\Data\Selenium\Softwares\selenium-server-standalone-3.141.59.jar -role webdriver -hub http://192.168.0.104:5566/grid/register/ -port 5566
+
+//If node is running on the different machine(local)
+//run on separate cmd prompt for edge driver
+java -jar C:\Data\Selenium\Softwares\selenium-server-standalone-3.141.59.jar -role webdriver -hub http://192.168.0.104:5568/grid/register/ -port 5568 -browser "browserName=MicrosoftEdge, maxInstances = 5"
+
+//If node is running on the different machine(remote)
+//run on separate cmd prompt for chrome driver
+java -Dwebdriver.chrome.driver="C:\Data\Selenium\Softwares\chromedriver_win32\chromedriver.exe" -jar C:\Data\Selenium\Softwares\selenium-server-standalone-3.141.59.jar -role webdriver -hub http://192.168.0.104:5566/grid/register/ -port 5566
+
+//If node is running on the different machine(remote)
+//run on separate cmd prompt for edge driver
+java -Dwebdriver.edge.driver="C:\Data\Selenium\Softwares\edgedriver_win64\msedgedriver.exe" -jar C:\Data\Selenium\Softwares\selenium-server-standalone-3.141.59.jar -role webdriver -hub http://192.168.0.104:5568/grid/register/ -port 5568 -browser "browserName=MicrosoftEdge, maxInstances = 5"
+
+=====================================================================================================================================================
+
+//Using JSON file
+//run on separate cmd prompt for hub
+java -jar C:\Data\Selenium\Softwares\selenium-server-standalone-3.141.59.jar -role hub -port 4455
+
+//run on separate cmd prompt for chrome driver
+java -Dwebdriver.chrome.driver="E:\Data\Selenium-workspace\LearningSeleniumGrid_UdemyCoursera\drivers\chromedriver.exe" -jar C:\Data\Selenium\Softwares\selenium-server-standalone-3.141.59.jar -role node -nodeConfig "E:\Data\Selenium-workspace\LearningSeleniumGrid_UdemyCoursera\resources\nodeA.json"
+
+//run on separate cmd prompt for edge driver
+java -Dwebdriver.edge.driver="E:\Data\Selenium-workspace\LearningSeleniumGrid_UdemyCoursera\drivers\msedgedriver.exe" -jar C:\Data\Selenium\Softwares\selenium-server-standalone-3.141.59.jar -role node -nodeConfig "E:\Data\Selenium-workspace\LearningSeleniumGrid_UdemyCoursera\resources\nodeB.json"
+
+
+=====================================================================================================================================================
